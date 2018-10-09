@@ -10,29 +10,26 @@ namespace CG_14_1
         public string Subtraction { get; set; }
         public string Multiplication { get; set; }
         public string Division { get; set; }
+        public decimal Total { get; set; }
 
-        public void AdditionMethod(string addition, int number1, int number2, int total)
+        public decimal AdditionMethod(int number1, int number2)
         {
-            Addition = addition;
-            total = number1 + number2;
+            return Total = number1 + number2;
         }
 
-        public void SubtractionMethod(string subtraction, int number1, int number2, int total)
+        public decimal SubtractionMethod(int number1, int number2)
         {
-            Subtraction = subtraction;
-            total = number1 - number2;
+            return Total = number1 - number2;
         }
 
-        public void MultiplicationMethod(string multiplication, int number1, int number2, int total)
+        public decimal MultiplicationMethod(int number1, int number2)
         {
-            Multiplication = multiplication;
-            total = number1 * number2;
+            return Total = number1 * number2;
         }
 
-        public void DivisionMethod(string division, int number1, int number2, int total)
+        public decimal DivisionMethod(int number1, int number2)
         {
-            Division = division;
-            total = number1 / number2;
+            return Total = number1 / number2;
         }
     }
 }
