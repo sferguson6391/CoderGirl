@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CG_14_1
+namespace CG_14_2
 {
-    class Calculator
+    public class Calculator
     {
         public decimal CalculatorMethod(string input)
         {

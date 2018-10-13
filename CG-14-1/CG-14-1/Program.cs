@@ -6,47 +6,24 @@ namespace CG_14_1
     {
         static void Main(string[] args)
         {
-            try
+            while (true)
             {
-                Calculator myCalculator = new Calculator();
+                Console.Clear();
+                try
+                {
+                    Console.Write("Enter your formula (i.e 10 + 4): ");
+                    string input = Console.ReadLine();
+                    Calculator myCalculator = new Calculator();
+                    Console.WriteLine($"{input} = {myCalculator.CalculatorMethod(input)}");
+                    Console.ReadLine();
+                }
 
-                Console.Write("Enter the first number: ");
-                int number1 = int.Parse(Console.ReadLine());
-                Console.Write("Enter the second number: ");
-                int number2 = int.Parse(Console.ReadLine());
-                Console.Write("Enter the operation you want to use: ");
-                string operation = Console.ReadLine();
-
-                if (operation == "addition" || operation == "+")
+                catch (Exception ex)
                 {
-                    myCalculator.AdditionMethod(number1, number2);
-                    Console.Write($"The total is {myCalculator.Total}");
+                    Console.WriteLine(ex.Message);
+                    Console.ReadLine();
                 }
-                else if (operation == "subraction" || operation == "-")
-                {
-                    myCalculator.SubtractionMethod(number1, number2);
-                    Console.Write($"The total is {myCalculator.Total}");
-                }
-                else if (operation == "multiplication" || operation == "*")
-                {
-                    myCalculator.MultiplicationMethod(number1, number2);
-                    Console.Write($"The total is {myCalculator.Total}");
-                }
-                else if (operation == "division" || operation == "/")
-                {
-                    myCalculator.DivisionMethod(number1, number2);
-                    Console.Write($"The total is {myCalculator.Total}");
-                }
-                else Console.WriteLine("Your input was not valid.");               
-
             }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("There was a problem!");
-                Console.WriteLine(ex.Message);
-            }
-            Console.ReadLine();
         }
     }
 }

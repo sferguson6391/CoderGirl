@@ -11,37 +11,38 @@ namespace CG_13_3
         {
             Console.Write("Enter the student's first name: ");
             string student = Console.ReadLine();
-            Students students = (Students)Enum.Parse(typeof(Students), student);
-            switch (students)
+            //to use long way remove nameof after case
+            //Students students = (Students)Enum.Parse(typeof(Students), student);
+            switch (student)
             {
-                case (Students.Sarah):
+                case nameof(Students.Sarah):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Jared):
+                case nameof(Students.Jared):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Lucy):
+                case nameof(Students.Lucy):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Maggie):
+                case nameof(Students.Maggie):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Carol):
+                case nameof(Students.Carol):
                     Console.WriteLine("Simpson");
                     break;
-                case (Students.Ali):
+                case nameof(Students.Ali):
                     Console.WriteLine("York");
                     break;
-                case (Students.Hunter):
+                case nameof(Students.Hunter):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Ryan):
+                case nameof(Students.Ryan):
                     Console.WriteLine("Ferguson");
                     break;
-                case (Students.Sophie):
+                case nameof(Students.Sophie):
                     Console.WriteLine("Park");
                     break;
-                case (Students.Marie):
+                case nameof(Students.Marie):
                     Console.WriteLine("Ferguson");
                     break;
             }

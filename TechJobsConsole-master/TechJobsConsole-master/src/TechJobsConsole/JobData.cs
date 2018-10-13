@@ -71,7 +71,7 @@ namespace TechJobsConsole
 
             List<string[]> rows = new List<string[]>();
 
-            using (StreamReader reader = File.OpenText("job_data.csv"))
+            using (StreamReader reader = File.OpenText(@"C:\Users\Jared\source\repos\TechJobsConsole-master\TechJobsConsole-master\src\TechJobsConsole\job_data.csv"))
             {
                 while (reader.Peek() >= 0)
                 {
