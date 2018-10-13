@@ -19,10 +19,5 @@ namespace CG_14_2_Test
             var result = ProgramTest.CalculatorMethod("2 + 2");
             Assert.Equal("4", result);
         }
-
-        private static object CalculatorMethod(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

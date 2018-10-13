@@ -7,20 +7,12 @@ namespace CG_14_3
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter the amount of time for your timer (seconds, minutes, or hours): ");
-            string input = Console.ReadLine();
+            Console.Write("Enter the amount of time for your timer (D:HH:MM:SS): ");
+            SetTimer timer = new SetTimer(Console.ReadLine());
 
-            Timer userTimer = new Timer(2000);
+            timer.Start();
 
-            userTimer.Elapsed += UserTimer_Elapsed;
-
-            userTimer.Start();
             Console.ReadLine();
-        }
-
-        private static void UserTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Console.WriteLine($"Elapsed: {e.SignalTime:HH:mm:ss.fff}");
         }
     }
 }
