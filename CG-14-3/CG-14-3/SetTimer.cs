@@ -24,13 +24,7 @@ namespace CG_14_3
 
         public void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Console.WriteLine($"Elapsed: {e.SignalTime: DD:HH:mm:ss}");
+            Console.WriteLine($"Ding! {e.SignalTime}");
         }
-
-        /*public void Start()
-        {
-            Console.WriteLine("{0:dd\\:hh\\:mm\\:ss}", DateTime.Now.Subtract(StartTime));
-            System.Threading.Thread.Sleep(1000);
-        }*/
     }
 }
