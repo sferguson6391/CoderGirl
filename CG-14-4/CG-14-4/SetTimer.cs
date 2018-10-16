@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 
-namespace CG_14_3
+namespace CG_14_4
 {
     class SetTimer
     {

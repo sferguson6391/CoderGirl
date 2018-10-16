@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Timers;
 
-namespace CG_14_3
+namespace CG_14_4
 {
     class Program
     {
