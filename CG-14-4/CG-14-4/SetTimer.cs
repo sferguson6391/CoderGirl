@@ -5,7 +5,7 @@ using System.Timers;
 
 namespace CG_14_4
 {
-    class SetTimer
+    public class SetTimer
     {
         public DateTime StartTime { get; set; }
         public Timer Timer { get; set; }
@@ -22,6 +22,10 @@ namespace CG_14_4
             Timer.AutoReset = false;
             Timer.Enabled = true;
             StartTime = DateTime.Now;
+        }
+
+        public SetTimer()
+        {
         }
 
         public void Timer_Elapsed(object sender, ElapsedEventArgs e)
