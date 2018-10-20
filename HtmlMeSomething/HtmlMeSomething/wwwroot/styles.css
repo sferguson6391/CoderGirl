@@ -1,0 +1,17 @@
+﻿body {
+    background-color: aliceblue;
+    font-family: 'Trebuchet MS';
+    margin: 25px;
+}
+
+h1, h4, h3 {
+    color: steelblue;
+}
+
+.body {
+    padding: 25px;
+}
+
+img {
+    width: 100%
+}
