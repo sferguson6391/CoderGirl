@@ -28,50 +28,62 @@ namespace TechJobsConsole
             // Allow user to search/list until they manually quit with ctrl+c
             while (true)
             {
-
-                string actionChoice = GetUserSelection("View Jobs", actionChoices);
-
-                if (actionChoice.Equals("list"))
+                try
                 {
-                    string columnChoice = GetUserSelection("List", columnChoices);
+                    string actionChoice = GetUserSelection("View Jobs", actionChoices);
 
-                    if (columnChoice.Equals("all"))
+                    if (actionChoice.Equals("list"))
                     {
-                        PrintJobs(JobData.FindAll());
-                    }
-                    else
-                    {
-                        List<string> results = JobData.FindAll(columnChoice);
+                        string columnChoice = GetUserSelection("List", columnChoices);
 
-                        Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
-                        foreach (string item in results)
+                        if (columnChoice.Equals("all"))
                         {
-                            Console.WriteLine(item);
+                            PrintJobs(JobData.FindAll());
+                        }
+                        else
+                        {
+                            List<string> results = JobData.FindAll(columnChoice);
+
+                            Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
+                            foreach (string item in results)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+                    }
+                    else // choice is "search"
+                    {
+                        // How does the user want to search (e.g. by skill or employer)
+                        string columnChoice = GetUserSelection("Search", columnChoices);
+
+                        // What is their search term?
+                        Console.WriteLine("\nSearch term: ");
+                        string searchTerm = Console.ReadLine();
+
+
+                        List<Dictionary<string, string>> searchResults;
+
+                        // Fetch results
+                        if (columnChoice.Equals("all"))
+                        {
+                            searchResults = JobData.FindByValue(searchTerm);
+                            if (searchResults.Count == 0)
+                                Console.WriteLine("Sorry your search term had no results.");
+                            else PrintJobs(searchResults);
+                        }
+                        else
+                        {
+                            searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
+                            if (searchResults.Count == 0)
+                                Console.WriteLine("Sorry your search term had no results.");
+                            PrintJobs(searchResults);
                         }
                     }
                 }
-                else // choice is "search"
+                catch
                 {
-                    // How does the user want to search (e.g. by skill or employer)
-                    string columnChoice = GetUserSelection("Search", columnChoices);
-
-                    // What is their search term?
-                    Console.WriteLine("\nSearch term: ");
-                    string searchTerm = Console.ReadLine();
-
-                    List<Dictionary<string, string>> searchResults;
-
-                    // Fetch results
-                    if (columnChoice.Equals("all"))
-                    {
-                        searchResults = JobData.FindByValue(searchTerm);
-                        PrintJobs(searchResults);
-                    }
-                    else
-                    {
-                        searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
-                        PrintJobs(searchResults);
-                    }
+                    Console.WriteLine("Sorry, you must enter a supplied search term. Press enter to begin again.");
+                    Console.ReadLine();
                 }
             }
         }

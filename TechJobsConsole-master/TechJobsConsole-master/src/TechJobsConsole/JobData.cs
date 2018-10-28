@@ -46,11 +46,14 @@ namespace TechJobsConsole
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
+            bool contains = false;
+
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
+                contains = aValue.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
 
-                if (aValue.Contains(value))
+                if (contains == true)
                 {
                     jobs.Add(row);
                 }
@@ -69,11 +72,14 @@ namespace TechJobsConsole
             foreach (Dictionary<string, string> job in AllJobs)
             {
                 string jobTotal = null;
+                bool contains = false;
                 foreach (var jobPair in job)
                 {
                     jobTotal = string.Join(",", job.Select(x => x.Key + " " + x.Value));
+                    contains = jobTotal.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
                 }
-                if (jobTotal.Contains(value))
+
+                if (contains == true) 
                     jobs.Add(job);
             }
             return jobs;
