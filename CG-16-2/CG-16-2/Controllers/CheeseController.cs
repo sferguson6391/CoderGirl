@@ -9,7 +9,7 @@ namespace CG_16_2.Controllers
     public class CheeseController : Controller
     {
 
-        static private Dictionary<string, string> Cheeses = new Dictionary<string, string>();
+        static public Dictionary<string, string> Cheeses = new Dictionary<string, string>();
 
         public IActionResult Index()
         {
@@ -25,6 +25,8 @@ namespace CG_16_2.Controllers
 
         public IActionResult Remove()
         {
+            ViewBag.cheeses = Cheeses;
+
             return View();
         }
 

@@ -11,11 +11,12 @@
 }
 
 <form method="post">
-    <input list="cheese" />
+    <input name="name" type="text" list="cheese"/>
     <datalist id="cheese">
         @foreach (KeyValuePair<string, string> cheese in ViewBag.cheeses)
         {
             <option value="@cheese.Key" />
         }
     </datalist>
+    <button type="submit">Remove Cheese</button>
 </form>
