@@ -1,0 +1,16 @@
+﻿@model CG.Models.Cheese
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit @Model.Name (id = @Model.CheeseId)</h2>
+
+<form method="post">
+    <label>Cheese Name</label>
+    <input name="name" type="text" value="@Model.Name"/>
+    <label>Description</label>
+    <input name="description" type="text" value="@Model.Description"/>
+    <input type="submit" value="Save Cheese" />
+    <input type="hidden" value="@Model.CheeseId" name="id" />
+</form>
