@@ -18,7 +18,7 @@
 <ul>
     @foreach (var cheese in Model)
     {
-        <li><b>@cheese.Name:</b> @cheese.Description 
+        <li><b>@cheese.Name:</b> @cheese.Description, @cheese.Type, @cheese.Rating Stars
             <a asp-controller="Cheese" asp-action="Edit" asp-route-cheeseId="@cheese.CheeseId">edit</a></li>
     }
 </ul>

@@ -2,6 +2,7 @@
 using CG.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using CG.ViewModels;
 
 namespace CG_16_2.Controllers
 {
@@ -14,7 +15,8 @@ namespace CG_16_2.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            AddEditCheeseViewModel addCheeseViewModel = new AddEditCheeseViewModel();
+            return View(addCheeseViewModel);
         }
 
 
@@ -24,17 +26,30 @@ namespace CG_16_2.Controllers
         }
 
         [HttpPost]
-        [Route("/Cheese/Add")]
-        public IActionResult NewCheese(Cheese newCheese)
+        //[Route("/Cheese/Add")]
+        public IActionResult Add(AddEditCheeseViewModel addCheeseViewModel)
         {
-            CheeseData.Add(newCheese);
+            if (ModelState.IsValid)
+            {
+                Cheese newCheese = new Cheese()
+                {
+                    Name = addCheeseViewModel.Name,
+                    Description = addCheeseViewModel.Description,
+                    Type = addCheeseViewModel.Type,
+                    Rating = (int)addCheeseViewModel.Rating
+                };
 
-            return Redirect("/Cheese");
+                CheeseData.Add(newCheese);
+
+                return Redirect("/Cheese");
+            }
+
+            return View(addCheeseViewModel);
         }
 
         [HttpPost]
-        [Route("/Cheese/Remove")]
-        public IActionResult RemoveCheese(int[] cheeseIds)
+        //[Route("/Cheese/Remove")]
+        public IActionResult Remove(int[] cheeseIds)
         {
             foreach (int cheeseId in cheeseIds)
             {

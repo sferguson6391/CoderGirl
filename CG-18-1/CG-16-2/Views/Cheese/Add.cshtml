@@ -1,14 +1,30 @@
-﻿
+﻿@model CG.ViewModels.AddEditCheeseViewModel
+
 @{
     ViewData["Title"] = "Add";
 }
 
 <h1>Add Cheese</h1>
 
-<form method="post">
-    <label>Cheese Name</label>
-    <input name="name" type="text" />
-    <label>Description</label>
-    <input name="description" type="text" />
+<form asp-controller="Cheese" asp-action="Add" method="post">
+    <div class="form-group">
+        <label>Cheese Name</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <select asp-for="Type" asp-items="Model.CheeseTypes"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <select asp-for="Rating" asp-items="Model.CheeseRatings"></select>
+    </div>
+
     <input type="submit" value="Add Cheese" />
 </form>
