@@ -9,9 +9,9 @@ namespace CG_19_1.Controllers
 {
     public class UserController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(User newUser)
         {
-            return View();
+            return View(newUser);
         }
 
         public IActionResult Add()
@@ -25,7 +25,7 @@ namespace CG_19_1.Controllers
         {
             if (verify == newUser.Password)
             {
-                return RedirectToAction("Index", "User", new { newUser });
+                return View("Add", newUser);
             }
 
             return Redirect("/Add");
