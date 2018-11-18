@@ -8,15 +8,19 @@ namespace CG.Models
 {
     public class User
     {
-        [Required]
         public string Username { get; set; }
-
-        [Required]
         public string Email { get; set; }
-
-        [Required]
         public string Password { get; set; }
+        public string Verify { get; set; }
+        public DateTime UserDateTime { get; set; }
+        public int UserId { get; set; }
+        private static int nextId = 1;
 
-        public User() { }
+        public User()
+        {
+            UserId = nextId;
+            nextId++;
+            UserDateTime = DateTime.Now;
+        }
     }
 }
