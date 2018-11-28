@@ -17,8 +17,7 @@ namespace CG_19_1.Controllers
 
         public IActionResult Add()
         {
-            //AddUserViewModel addUserViewModel = new AddUserViewModel();
-            return View();
+            return View(new AddUserViewModel());
         }
 
         [HttpPost]
@@ -39,7 +38,7 @@ namespace CG_19_1.Controllers
                 return Redirect("/User/Index");
             }
 
-            return View("Add", newUser);
+            return View("Add", addUserViewModel);
         }
 
         public IActionResult Details(User myUser)

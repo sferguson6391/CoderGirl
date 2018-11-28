@@ -9,22 +9,22 @@
 <form asp-controller="User" asp-action="Add" method="post">
     <div class="form-group">
         <label>Username</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" value="@Model.Username" />
         <span asp-validation-for="Username"></span>
     </div>
     <div class="form-group">
         <label>Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" value="@Model.Email" />
         <span asp-validation-for="Email"></span>
     </div>
     <div class="form-group">
         <label>Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" value="@Model.Password"/>
         <span asp-validation-for="Password"></span>
     </div>
     <div class="form-group">
         <label>Verify Password</label>
-        <input type="password" name="verify" />
+        <input type="password" name="verify" value="@Model.Verify"/>
         <span asp-validation-for="Verify"></span>
     </div>
 
